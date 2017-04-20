@@ -1,0 +1,1238 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://www.oracle.com/technetwork/database/database-technologies/scripting-languages/node_js/">oracledb (v1.13.1)</a>
+</h1>
+<h4>Oracle Database driver by Oracle Corp.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oracledb">module oracledb</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.querystream">
+            function <span class="apidocSignatureSpan">oracledb.</span>querystream
+            <span class="apidocSignatureSpan">(resultSet, oracledb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oracledb.</span>connection</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oracledb.</span>lob</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oracledb.</span>pool</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oracledb.</span>querystream.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oracledb.</span>resultset</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">oracledb.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oracledb.connection">module oracledb.connection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.connection.extend">
+            function <span class="apidocSignatureSpan">oracledb.connection.</span>extend
+            <span class="apidocSignatureSpan">(conn, oracledb, pool)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oracledb.lob">module oracledb.lob</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.lob.Lob">
+            function <span class="apidocSignatureSpan">oracledb.lob.</span>Lob
+            <span class="apidocSignatureSpan">(iLob, opt, oracledb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oracledb.pool">module oracledb.pool</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.pool.extend">
+            function <span class="apidocSignatureSpan">oracledb.pool.</span>extend
+            <span class="apidocSignatureSpan">(pool, poolAttrs, poolAlias, oracledb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oracledb.querystream">module oracledb.querystream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.querystream.querystream">
+            function <span class="apidocSignatureSpan">oracledb.</span>querystream
+            <span class="apidocSignatureSpan">(resultSet, oracledb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.querystream.super_">
+            function <span class="apidocSignatureSpan">oracledb.querystream.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oracledb.querystream.prototype">module oracledb.querystream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.querystream.prototype._open">
+            function <span class="apidocSignatureSpan">oracledb.querystream.prototype.</span>_open
+            <span class="apidocSignatureSpan">(err, rs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.querystream.prototype._read">
+            function <span class="apidocSignatureSpan">oracledb.querystream.prototype.</span>_read
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oracledb.resultset">module oracledb.resultset</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.resultset.extend">
+            function <span class="apidocSignatureSpan">oracledb.resultset.</span>extend
+            <span class="apidocSignatureSpan">(resultSet, oracledb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.oracledb.util">module oracledb.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.util.assert">
+            function <span class="apidocSignatureSpan">oracledb.util.</span>assert
+            <span class="apidocSignatureSpan">(condition, errorCode, messageArg1)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.util.getErrorMessage">
+            function <span class="apidocSignatureSpan">oracledb.util.</span>getErrorMessage
+            <span class="apidocSignatureSpan">(errorCode, messageArg1)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.util.isObject">
+            function <span class="apidocSignatureSpan">oracledb.util.</span>isObject
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.util.isObjectOrArray">
+            function <span class="apidocSignatureSpan">oracledb.util.</span>isObjectOrArray
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.util.makeEventEmitter">
+            function <span class="apidocSignatureSpan">oracledb.util.</span>makeEventEmitter
+            <span class="apidocSignatureSpan">(instance)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.oracledb.util.promisify">
+            function <span class="apidocSignatureSpan">oracledb.util.</span>promisify
+            <span class="apidocSignatureSpan">(func)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oracledb" id="apidoc.module.oracledb">module oracledb</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.querystream" id="apidoc.element.oracledb.querystream">
+        function <span class="apidocSignatureSpan">oracledb.</span>querystream
+        <span class="apidocSignatureSpan">(resultSet, oracledb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function QueryStream(resultSet, oracledb) {
+  var self = this;
+
+  Object.defineProperties(
+    self,
+    {
+      _oracledb: { // storing a reference to the base instance to avoid circular references with require
+        value: oracledb
+      },
+      _resultSet: {
+        value: resultSet,
+        writable: true
+      },
+      _fetchedRows: { // a local cache of rows fetched from a call to resultSet.getRows
+        value: [],
+        writable: true
+      },
+      _fetchedAllRows: { // used to avoid an unnecessary call to resultSet.getRows
+        value: false,
+        writable: true
+      },
+      _fetching: { // used to serialize method calls on the resultset
+        value: false,
+        writable: true
+      },
+      _closed: { // used to track that the stream is closed
+        value: false,
+        writable: true
+      }
+    }
+  );
+
+  Readable.call(self, {
+    objectMode: true
+  });
+
+  if (self._resultSet) { // If true, no need to invoke _open, we are ready to go.
+    self.emit('metadata', self._resultSet.metaData);
+
+    self.emit('open');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oracledb.connection" id="apidoc.module.oracledb.connection">module oracledb.connection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.connection.extend" id="apidoc.element.oracledb.connection.extend">
+        function <span class="apidocSignatureSpan">oracledb.connection.</span>extend
+        <span class="apidocSignatureSpan">(conn, oracledb, pool)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extend(conn, oracledb, pool) {
+  nodbUtil.makeEventEmitter(conn);
+
+  // Using Object.defineProperties to add properties to the Connection instance with
+  // special properties, such as enumerable but not writable.
+  Object.defineProperties(
+    conn,
+    {
+      _oracledb: { // storing a reference to the base instance to avoid circular references with require
+        value: oracledb
+      },
+      _pool: { // storing a reference to the pool, if any, from which the connection was obtained
+        value: pool
+      },
+      _execute: {
+        value: conn.execute
+      },
+      queryStream: {
+        value: queryStream,
+        enumerable: true,
+        writable: true
+      },
+      execute: {
+        value: executePromisified,
+        enumerable: true,
+        writable: true
+      },
+      _commit: {
+        value: conn.commit
+      },
+      commit: {
+        value: commitPromisified,
+        enumerable: true,
+        writable: true
+      },
+      _createLob: {
+        value: conn.createLob
+      },
+      createLob: {
+        value: createLobPromisified,
+        enumerable: true,
+        writable: true
+      },
+      _rollback: {
+        value: conn.rollback
+      },
+      rollback: {
+        value: rollbackPromisified,
+        enumerable: true,
+        writable: true
+      },
+      _release: {
+        value: conn.release
+      },
+      release: {
+        value: releasePromisified,
+        enumerable: true,
+        writable: true
+      },
+      close: { // alias for release
+        value: releasePromisified,
+        enumerable: true,
+        writable: true
+      },
+      _break: {
+        value: conn.break
+      },
+      break: {
+        value: breakPromisified,
+        enumerable: true,
+        writable: true
+      }
+    }
+  );
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  stream = new QueryStream(null, self._oracledb);
+
+  self._execute(sql, binding, options, function(err, result) {
+    if (err) {
+      stream._open(err, null);
+    } else {
+      resultset.<span class="apidocCodeKeywordSpan">extend</span>(result.resultSet, self._oracledb);
+      stream._open(null, result.resultSet);
+    }
+  });
+
+  return stream;
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oracledb.lob" id="apidoc.module.oracledb.lob">module oracledb.lob</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.lob.Lob" id="apidoc.element.oracledb.lob.Lob">
+        function <span class="apidocSignatureSpan">oracledb.lob.</span>Lob
+        <span class="apidocSignatureSpan">(iLob, opt, oracledb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Lob(iLob, opt, oracledb) {
+  Duplex.call(this, opt);
+
+  this.iLob = iLob;
+
+  Object.defineProperties(
+    this,
+    {
+      _oracledb: { // _oracledb property used by promisify () in util.js
+        value: oracledb
+      },
+      _autoCloseLob: { // Tells whether to close at the end of stream or not
+        value: iLob.autoCloseLob,
+        writable: false
+      },
+      chunkSize: {
+        value: iLob.chunkSize,
+        writable: false
+      },
+      length: {
+        get: function() {
+          return iLob.length;
+        }
+      },
+      pieceSize: {
+        get: function() {
+          return iLob.pieceSize;
+        },
+        set: function(newPieceSize) {
+          iLob.pieceSize = newPieceSize;
+        }
+      },
+      type: {
+        get: function() {
+          return iLob.type;
+        }
+      },
+      close: {
+        value: closePromisified,
+        enumerable: true,
+        writable: true
+      }
+    });
+
+  if (this._autoCloseLob) {
+    this.once('finish', this._closeSync);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oracledb.pool" id="apidoc.module.oracledb.pool">module oracledb.pool</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.pool.extend" id="apidoc.element.oracledb.pool.extend">
+        function <span class="apidocSignatureSpan">oracledb.pool.</span>extend
+        <span class="apidocSignatureSpan">(pool, poolAttrs, poolAlias, oracledb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extend(pool, poolAttrs, poolAlias, oracledb) {
+  var queueRequests;
+  var queueTimeout;
+
+  if (typeof poolAttrs.queueRequests !== 'undefined') {
+    queueRequests = poolAttrs.queueRequests;
+  } else {
+    queueRequests = oracledb.queueRequests;
+  }
+
+  if (typeof poolAttrs.queueTimeout !== 'undefined') {
+    queueTimeout = poolAttrs.queueTimeout;
+  } else {
+    queueTimeout = oracledb.queueTimeout;
+  }
+
+  nodbUtil.makeEventEmitter(pool);
+
+  // Using Object.defineProperties to add properties to the Pool instance with special
+  // properties, such as enumerable but not writable.
+  Object.defineProperties(
+    pool,
+    {
+      _oracledb: { // storing a reference to the base instance to avoid circular references with require
+        value: oracledb
+      },
+      queueRequests: { // true will queue requests when conn pool is maxed out
+        enumerable: true,
+        get: function() {
+          return queueRequests;
+        },
+        set: function() {
+          throw new Error(nodbUtil.getErrorMessage('NJS-014', 'queueRequests'));
+        }
+      },
+      queueTimeout: { // milliseconds a connection request can spend in queue before being failed
+        enumerable: true,
+        get: function() {
+          return queueTimeout;
+        },
+        set: function() {
+          throw new Error(nodbUtil.getErrorMessage('NJS-014', 'queueTimeout'));
+        }
+      },
+      _isValid: { // used to ensure operations are not done after terminate
+        value: true,
+        writable: true
+      },
+      _enableStats: { // true means pool stats will be recorded
+        value: poolAttrs._enableStats === true
+      },
+      _logStats: { // output pool stats
+        value: logStats
+      },
+      _createdDate: {
+        value: Date.now()
+      },
+      _totalConnectionRequests: { // total number of pool.getConnection requests
+        value: 0,
+        writable: true
+      },
+      _totalRequestsEnqueued: { // number of pool.getConnection requests added to queue
+        value: 0,
+        writable: true
+      },
+      _totalRequestsDequeued: { // number of pool.getConnection requests removed from queue because a pool connection became available
+        value: 0,
+        writable: true
+      },
+      _totalFailedRequests: { // number of pool.getConnection requests that failed at the C layer
+        value: 0,
+        writable: true
+      },
+      _totalRequestTimeouts: { // number of queued pool.getConnection requests that timed out without being satisfied
+        value: 0,
+        writable: true
+      },
+      _totalTimeInQueue: { // sum of time in milliseconds that all pool.getConnection requests spent in the queue
+        value: 0,
+        writable: true
+      },
+      _maxQueueLength: { // maximum length of pool queue
+        value: 0,
+        writable: true
+      },
+      _minTimeInQueue: { // shortest amount of time (milliseconds) that any pool.getConnection request spent in queue
+        value: 0,
+        writable: true
+      },
+      _maxTimeInQueue: { // longest amount of time (milliseconds) that any pool.getConnection request spent in queue
+        value: 0,
+        writable: true
+      },
+      _usingQueueTimeout: {
+        value: queueTimeout !== 0
+      },
+      _connectionsOut: { // number of connections checked out from the pool. Must be inc/dec in the main thread in JS
+        value: 0,
+        writable: true
+      },
+      _connRequestQueue: {
+        value: [],
+        writable: true
+      },
+      _connRequestTimersIdx: {
+        value: 0,
+        writable: true
+      },
+      _connRequestTimersMap: {
+        value: {},
+        writable: true
+      },
+      _getConnection: {
+        value: pool.getConnection
+      },
+      poolAlias: {
+        enumerable: true,
+        get: function() {
+          return poolAlias;
+        },
+        set: function() {
+          throw new Error(nodbUtil.getErrorMessage('NJS-014', 'poolAlias'));
+        }
+      },
+      getConnection: {
+        value: getConnectionPromisified,
+        enumerable: true,
+        writable: true
+      },
+      _terminate: {
+        value: pool.terminate ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  stream = new QueryStream(null, self._oracledb);
+
+  self._execute(sql, binding, options, function(err, result) {
+    if (err) {
+      stream._open(err, null);
+    } else {
+      resultset.<span class="apidocCodeKeywordSpan">extend</span>(result.resultSet, self._oracledb);
+      stream._open(null, result.resultSet);
+    }
+  });
+
+  return stream;
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oracledb.querystream" id="apidoc.module.oracledb.querystream">module oracledb.querystream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.querystream.querystream" id="apidoc.element.oracledb.querystream.querystream">
+        function <span class="apidocSignatureSpan">oracledb.</span>querystream
+        <span class="apidocSignatureSpan">(resultSet, oracledb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function QueryStream(resultSet, oracledb) {
+  var self = this;
+
+  Object.defineProperties(
+    self,
+    {
+      _oracledb: { // storing a reference to the base instance to avoid circular references with require
+        value: oracledb
+      },
+      _resultSet: {
+        value: resultSet,
+        writable: true
+      },
+      _fetchedRows: { // a local cache of rows fetched from a call to resultSet.getRows
+        value: [],
+        writable: true
+      },
+      _fetchedAllRows: { // used to avoid an unnecessary call to resultSet.getRows
+        value: false,
+        writable: true
+      },
+      _fetching: { // used to serialize method calls on the resultset
+        value: false,
+        writable: true
+      },
+      _closed: { // used to track that the stream is closed
+        value: false,
+        writable: true
+      }
+    }
+  );
+
+  Readable.call(self, {
+    objectMode: true
+  });
+
+  if (self._resultSet) { // If true, no need to invoke _open, we are ready to go.
+    self.emit('metadata', self._resultSet.metaData);
+
+    self.emit('open');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.querystream.super_" id="apidoc.element.oracledb.querystream.super_">
+        function <span class="apidocSignatureSpan">oracledb.querystream.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Readable(options) {
+  if (!(this instanceof Readable))
+    return new Readable(options);
+
+  this._readableState = new ReadableState(options, this);
+
+  // legacy
+  this.readable = true;
+
+  if (options &amp;&amp; typeof options.read === 'function')
+    this._read = options.read;
+
+  Stream.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oracledb.querystream.prototype" id="apidoc.module.oracledb.querystream.prototype">module oracledb.querystream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.querystream.prototype._open" id="apidoc.element.oracledb.querystream.prototype._open">
+        function <span class="apidocSignatureSpan">oracledb.querystream.prototype.</span>_open
+        <span class="apidocSignatureSpan">(err, rs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_open = function (err, rs) {
+  var self = this;
+
+  if (err) {
+    self.emit('error', err);
+    return;
+  }
+
+  self._resultSet = rs;
+
+  self.emit('metadata', self._resultSet.metaData);
+
+  // Trigger the event listener that may have been added in _read now that the
+  // resultset is ready.
+  self.emit('open');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+options.resultSet = true;
+
+stream = new QueryStream(null, self._oracledb);
+
+self._execute(sql, binding, options, function(err, result) {
+  if (err) {
+    stream.<span class="apidocCodeKeywordSpan">_open</span>(err, null);
+  } else {
+    resultset.extend(result.resultSet, self._oracledb);
+    stream._open(null, result.resultSet);
+  }
+});
+
+return stream;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.querystream.prototype._read" id="apidoc.element.oracledb.querystream.prototype._read">
+        function <span class="apidocSignatureSpan">oracledb.querystream.prototype.</span>_read
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_read = function () {
+  var self = this;
+  var fetchCount;
+
+  if (!self._resultSet) {
+    // Still waiting on the resultset, add an event listener to retry when ready
+    return self.once('open', function() {
+      self._read();
+    });
+  }
+
+  if (self._closed) {
+    return;
+  }
+
+  if (self._fetchedRows.length) {
+    // We have rows already fetched that need to be pushed
+    self.push(self._fetchedRows.shift());
+  } else if (self._fetchedAllRows) {
+    // Calling the C layer close directly to avoid assertions on the public method
+    self._resultSet._close(function(err) {
+      if (err) {
+        self.emit('error', err);
+        return;
+      }
+
+      // Signal the end of the stream
+      self.push(null);
+    });
+  } else {
+    // Using _fetching to indicate that the resultset is working to avoid potential
+    // errors related to close w/conncurrent operations on resultsets
+    self._fetching = true;
+
+    fetchCount = self._oracledb.maxRows || 100;
+
+    // Calling the C layer getRows directly to avoid assertions on the public method
+    self._resultSet._getRows(fetchCount, function(err, rows) {
+      if (err) {
+        // We'll return the error from getRows, but first try to close the resultSet.
+        // Calling the C layer close directly to avoid assertions on the public method
+        self._resultSet._close(function() {
+          self.emit('error', err);
+        });
+
+        return;
+      }
+
+      self._fetching = false;
+
+      // Close may have been called while the resultset was fetching.
+      if (self._closed) {
+        // Trigger the event listener that may have been added in close now that
+        // the resultset has finished working.
+        self.emit('_doneFetching');
+        return;
+      }
+
+      self._fetchedRows = rows;
+
+      if (self._fetchedRows.length &lt; fetchCount) {
+        self._fetchedAllRows = true;
+      }
+
+      if (self._fetchedRows.length) {
+        self.push(self._fetchedRows.shift());
+      } else { // No more rows to fetch
+        // Calling the C layer close directly to avoid assertions on the public method
+        self._resultSet._close(function(err) {
+          if (err) {
+            self.emit('error', err);
+            return;
+          }
+
+          // Signal the end of the stream
+          self.push(null);
+        });
+      }
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+QueryStream.prototype._read = function () {
+var self = this;
+var fetchCount;
+
+if (!self._resultSet) {
+  // Still waiting on the resultset, add an event listener to retry when ready
+  return self.once('open', function() {
+    self.<span class="apidocCodeKeywordSpan">_read</span>();
+  });
+}
+
+if (self._closed) {
+  return;
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oracledb.resultset" id="apidoc.module.oracledb.resultset">module oracledb.resultset</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.resultset.extend" id="apidoc.element.oracledb.resultset.extend">
+        function <span class="apidocSignatureSpan">oracledb.resultset.</span>extend
+        <span class="apidocSignatureSpan">(resultSet, oracledb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extend(resultSet, oracledb) {
+  // Using Object.defineProperties to add properties to the ResultSet instance with
+  // special properties, such as enumerable but not writable.
+  Object.defineProperties(
+    resultSet,
+    {
+      _oracledb: { // storing a reference to the base instance to avoid circular references with require
+        value: oracledb
+      },
+      _processingStarted: { // used to prevent conversion to stream after invoking methods
+        value: false,
+        writable: true
+      },
+      _convertedToStream: { // used to prevent invoking methods after conversion to stream
+        value: false,
+        writable: true
+      },
+      _close: {
+        value: resultSet.close
+      },
+      close: {
+        value: closePromisified,
+        enumerable: true,
+        writable: true
+      },
+      _getRow: {
+        value: resultSet.getRow
+      },
+      getRow: {
+        value: getRowPromisified,
+        enumerable: true,
+        writable: true
+      },
+      _getRows: {
+        value: resultSet.getRows
+      },
+      getRows: {
+        value: getRowsPromisified,
+        enumerable: true,
+        writable: true
+      },
+      toQueryStream: {
+        value: toQueryStream,
+        enumerable: true,
+        writable: true
+      }
+    }
+  );
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  stream = new QueryStream(null, self._oracledb);
+
+  self._execute(sql, binding, options, function(err, result) {
+    if (err) {
+      stream._open(err, null);
+    } else {
+      resultset.<span class="apidocCodeKeywordSpan">extend</span>(result.resultSet, self._oracledb);
+      stream._open(null, result.resultSet);
+    }
+  });
+
+  return stream;
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.oracledb.util" id="apidoc.module.oracledb.util">module oracledb.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.util.assert" id="apidoc.element.oracledb.util.assert">
+        function <span class="apidocSignatureSpan">oracledb.util.</span>assert
+        <span class="apidocSignatureSpan">(condition, errorCode, messageArg1)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assert(condition, errorCode, messageArg1) {
+  if (!condition) {
+    throw new Error(getErrorMessage(errorCode, messageArg1));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// The queryStream function is similar to execute except that it immediately
+// returns a QueryStream.
+function queryStream(sql, binding, options) {
+var self = this;
+var stream;
+
+nodbUtil.<span class="apidocCodeKeywordSpan">assert</span>(arguments.length &gt; 0 &amp;&amp; arguments.length &lt; 4, '
+;NJS-009');
+nodbUtil.assert(typeof sql === 'string', 'NJS-006', 1);
+
+if (binding) {
+  nodbUtil.assert(nodbUtil.isObjectOrArray(binding), 'NJS-006', 2);
+}
+
+if (options) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.util.getErrorMessage" id="apidoc.element.oracledb.util.getErrorMessage">
+        function <span class="apidocSignatureSpan">oracledb.util.</span>getErrorMessage
+        <span class="apidocSignatureSpan">(errorCode, messageArg1)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getErrorMessage(errorCode, messageArg1) {
+  if (messageArg1) {
+    return util.format(errorMessages[errorCode], messageArg1);
+  } else {
+    return util.format(errorMessages[errorCode]);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+} else {
+  try {
+    oracledbCLib = require('../build/Debug/oracledb');
+  } catch (err) {
+    if (err.code !== 'MODULE_NOT_FOUND') {
+      throw err;
+    } else {
+      throw new Error(nodbUtil.<span class="apidocCodeKeywordSpan">getErrorMessage</span>('NJS-045'));
+    }
+  }
+}
+}
+
+oracledbCLib.Oracledb.prototype.newLob = function(iLob) {
+return new Lob(iLob, null, oracledbInst);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.util.isObject" id="apidoc.element.oracledb.util.isObject">
+        function <span class="apidocSignatureSpan">oracledb.util.</span>isObject
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isObject(value) {
+  return value !== null &amp;&amp; typeof value === 'object';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+nodbUtil.assert(typeof sql === 'string', 'NJS-006', 1);
+
+if (binding) {
+  nodbUtil.assert(nodbUtil.isObjectOrArray(binding), 'NJS-006', 2);
+}
+
+if (options) {
+  nodbUtil.assert(nodbUtil.<span class="apidocCodeKeywordSpan">isObject</span>(options), 'NJS-006', 3);
+}
+
+binding = binding || [];
+options = options || {};
+
+options.resultSet = true;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.util.isObjectOrArray" id="apidoc.element.oracledb.util.isObjectOrArray">
+        function <span class="apidocSignatureSpan">oracledb.util.</span>isObjectOrArray
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isObjectOrArray(value) {
+  return (value !== null &amp;&amp; typeof value === 'object') || Array.isArray(value);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var self = this;
+var stream;
+
+nodbUtil.assert(arguments.length &gt; 0 &amp;&amp; arguments.length &lt; 4, 'NJS-009');
+nodbUtil.assert(typeof sql === 'string', 'NJS-006', 1);
+
+if (binding) {
+  nodbUtil.assert(nodbUtil.<span class="apidocCodeKeywordSpan">isObjectOrArray</span>(binding), 'NJS-006', 2);
+}
+
+if (options) {
+  nodbUtil.assert(nodbUtil.isObject(options), 'NJS-006', 3);
+}
+
+binding = binding || [];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.util.makeEventEmitter" id="apidoc.element.oracledb.util.makeEventEmitter">
+        function <span class="apidocSignatureSpan">oracledb.util.</span>makeEventEmitter
+        <span class="apidocSignatureSpan">(instance)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function makeEventEmitter(instance){
+  eventEmitterFuncKeys.forEach(function(key) {
+    instance[key] = EventEmitter.prototype[key];
+  });
+
+  EventEmitter.call(instance);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+breakPromisified = nodbUtil.promisify(module.break);
+
+// The extend method is used to extend the Connection instance from the C layer with
+// custom properties and method overrides. References to the original methods are
+// maintained so they can be invoked by the overriding method at the right time.
+function extend(conn, oracledb, pool) {
+nodbUtil.<span class="apidocCodeKeywordSpan">makeEventEmitter</span>(conn);
+
+// Using Object.defineProperties to add properties to the Connection instance with
+// special properties, such as enumerable but not writable.
+Object.defineProperties(
+  conn,
+  {
+    _oracledb: { // storing a reference to the base instance to avoid circular references with require
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.oracledb.util.promisify" id="apidoc.element.oracledb.util.promisify">
+        function <span class="apidocSignatureSpan">oracledb.util.</span>promisify
+        <span class="apidocSignatureSpan">(func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function promisify(func) {
+  return function() {
+    var self = this;
+    var args;
+
+    // This/self could refer to the base class instance, pool, connection, etc. All
+    // class instances have a private reference to the base class for convenience.
+    if (!self._oracledb.Promise || typeof arguments[arguments.length - 1] === 'function') {
+      return func.apply(self, arguments);
+    } else {
+      // Converting to an array so we can extend it later with a custom callback
+      args = Array.prototype.slice.call(arguments);
+
+      return new self._oracledb.Promise(function(resolve, reject) {
+        var errorCode;
+
+        try {
+          args[args.length] = function(err, result) {
+            if (err) {
+              reject(err);
+            } else {
+              resolve(result);
+            }
+          };
+
+          func.apply(self, args);
+        } catch (err) {
+          errorCode = err.message.substr(0, 7);
+
+          // Check for invalid number or type of parameter(s) as they should be
+          // eagerly thrown.
+          if (errorCode === 'NJS-009' || errorCode === 'NJS-006') {
+            // Throwing the error outside of the promise wrapper so that its not
+            // swallowed up as a rejection.
+            process.nextTick(function() {
+              throw err;
+            });
+          } else {
+            reject(err);
+          }
+        }
+      });
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  case 2:
+    executeCb = a2;
+    self._execute.call(self, a1, custExecuteCb);
+    break;
+}
+}
+
+executePromisified = nodbUtil.<span class="apidocCodeKeywordSpan">promisify</span>(execute);
+
+// This commit function is just a place holder to allow for easier extension later.
+function commit(commitCb) {
+var self = this;
+
+nodbUtil.assert(arguments.length === 1, 'NJS-009');
+nodbUtil.assert(typeof commitCb === 'function', 'NJS-006', 1);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
